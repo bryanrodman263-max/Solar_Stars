@@ -1,0 +1,125 @@
+:root {
+  color-scheme: dark;
+  --bg: #020614;
+  --panel: #0d1730;
+  --text: #e6ecff;
+  --muted: #95a3cf;
+  --accent: #6cc8ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #0b1a3d, var(--bg) 60%);
+  color: var(--text);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  min-height: 100vh;
+}
+
+.panel {
+  padding: 20px;
+  background: rgba(13, 23, 48, 0.85);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.controls {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+button {
+  background: #1e335d;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  max-height: 58vh;
+  overflow: auto;
+}
+
+.legend li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.canvas-wrap {
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: calc(100vh - 24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: radial-gradient(circle at center, rgba(15, 25, 57, 0.4), rgba(2, 6, 20, 0.9));
+}
+
+@media (max-width: 1100px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legend {
+    max-height: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
